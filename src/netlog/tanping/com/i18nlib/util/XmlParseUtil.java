@@ -128,6 +128,10 @@ public class XmlParseUtil {
         for (int i =1 ;i<listData.size();i++) {
             List<String>  datas =  listData.get(i);
             String name = datas.get(0);
+
+            if (index>=datas.size()){
+                continue;
+            }
             String value = datas.get(index);
 
             if (StringUtil.isEmpty(name) || StringUtil.isEmpty(value)){
@@ -150,6 +154,10 @@ public class XmlParseUtil {
         for (int i =1 ;i<listData.size();i++) {
             List<String>  datas =  listData.get(i);
             String name = datas.get(0);
+
+            if (index>=datas.size()){
+                continue;
+            }
             String value = datas.get(index);
 
             if (StringUtil.isEmpty(name) || StringUtil.isEmpty(value)){

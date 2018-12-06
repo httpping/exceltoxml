@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.tp.xml</id>
   <name>XML-TP</name>
-  <version>4.0</version>
+  <version>5.0</version>
   <vendor email="871625458@qq.com" url="https://github.com/httpping/android-xml-i18n">tanping</vendor>
 
   <description>  Android excel to XML i18n </description>

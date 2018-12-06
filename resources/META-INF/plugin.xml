@@ -1,18 +1,13 @@
 <idea-plugin>
   <id>com.tp.xml</id>
   <name>XML-TP</name>
-  <version>1.0</version>
-  <vendor email="871625458@qq.com" url="871625458@qq.com">tanping</vendor>
+  <version>4.0</version>
+  <vendor email="871625458@qq.com" url="https://github.com/httpping/android-xml-i18n">tanping</vendor>
 
-  <description><![CDATA[
-      1、只支持 app module ；"
-      2、Excel的文件必须在根目录并且名为 ：xml-data.xlsx"
-      3、Excel 第一行为标记行，标记 name(key栏) 、 default(默认语言栏)、en/es/ar/fr...(其他语言简写栏)
-    ]]></description>
+  <description>  Android excel to XML i18n </description>
 
-  <change-notes><![CDATA[
-      为了国际化开发需求
-    ]]>
+  <change-notes>
+    Android excel to XML i18n
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->

@@ -11,10 +11,13 @@ import netlog.tanping.com.i18nlib.util.DateUtils;
 
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 public class InsertXML extends AnAction {
     private Project project;
 
+    public static HashMap<String,List<String>> exitsContent;
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         project = anActionEvent.getData(PlatformDataKeys.PROJECT);
@@ -35,8 +38,13 @@ public class InsertXML extends AnAction {
         //目录存在
         if (res.exists() && excel.exists()){
             try {
+                exitsContent = new HashMap<>();
                 MyI18NClass.parse(DateUtils.format(new Date()));
-                MessageDialogBuilder.yesNo("消息","已完成，保持项目 编码格式Utf-8 ，其他格式可能会出现乱码情况").show();
+                MessageDialogBuilder.yesNo("消息","已完成，保持项目 编码格式Utf-8 ，其他格式可能会出现乱码情况 \n 存在：\n"
+                 + exitsContent
+                ).show();
+
+                exitsContent = null;
             } catch (Exception e) {
                 e.printStackTrace();
                 MessageDialogBuilder.yesNo("错误提醒", ExceptionUtil.getThrowableText(e)).show();

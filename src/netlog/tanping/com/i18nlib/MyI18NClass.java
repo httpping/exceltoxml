@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import com.tp.xml.InsertXML;
 import netlog.tanping.com.i18nlib.util.ExcelReader;
 import netlog.tanping.com.i18nlib.util.FileParse;
 import netlog.tanping.com.i18nlib.util.StringUtil;
@@ -70,8 +71,13 @@ public class MyI18NClass {
                 continue;
             }
 
+//            InsertXML.exitsContent.
+
             //添加
-            XmlParseUtil.parse(path,eh.listData,i,tag);
+            List<String> resultExits = XmlParseUtil.parse(path,eh.listData,i,tag);
+            if (InsertXML.exitsContent !=null){
+                InsertXML.exitsContent.put(type,resultExits);
+            }
 
         }
     }

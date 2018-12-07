@@ -36,6 +36,7 @@ import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -58,7 +59,8 @@ import javax.xml.transform.stream.StreamResult;
 public class XmlParseUtil {
 
 
-    public static void parse(String path , List<List<String>> listData,int index,String tag) throws ParserConfigurationException, TransformerException, SAXException, IOException {
+    public static List<String> parse(String path , List<List<String>> listData,int index,String tag) throws ParserConfigurationException, TransformerException, SAXException, IOException {
+        List<String> resultExits  = null;
         // 1.得到DOM解析器的工厂实例
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         // 2.从DOM工厂里获取DOM解析器
@@ -78,7 +80,7 @@ public class XmlParseUtil {
                     docs.getDocumentElement().appendChild(docment);
                 }
 
-                createBody(listData, index, docs);
+                resultExits = createBody(listData, index, docs);
 
                 if (StringUtil.isNotEmpty(tag)) {
                     docment = docs.createComment(tag + "==end");
@@ -122,9 +124,11 @@ public class XmlParseUtil {
             throw e;
         }
 
+        return  resultExits;
     }
 
-    private static void createBody(List<List<String>> listData, int index, Document docs) {
+    private static List<String> createBody(List<List<String>> listData, int index, Document docs) {
+        List<String> resultExits = new ArrayList<>();
         for (int i =1 ;i<listData.size();i++) {
             List<String>  datas =  listData.get(i);
             String name = datas.get(0);
@@ -139,6 +143,7 @@ public class XmlParseUtil {
             }
 
             if (isExist(docs,name,value)){
+                resultExits.add(name);
                 continue;
             }
 
@@ -148,6 +153,8 @@ public class XmlParseUtil {
             bodyElement.appendChild(m);
             docs.getDocumentElement().appendChild(bodyElement);
         }
+
+        return resultExits;
     }
 
     private static boolean isNeedWrite(List<List<String>> listData, int index, Document docs) {

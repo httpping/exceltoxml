@@ -1,10 +1,22 @@
 <idea-plugin>
   <id>com.tp.xml</id>
   <name>XML-TP</name>
-  <version>5.0</version>
+  <version>7.0</version>
   <vendor email="871625458@qq.com" url="https://github.com/httpping/android-xml-i18n">tanping</vendor>
 
-  <description>  Android excel to XML i18n </description>
+  <description>
+    Android excel to XML i18n
+    Android 国际化 多国语言 string.xml 一键生成代码。
+    使用方法：
+    1、建立excel 放于 工程根目录 命名 ：xml-data.xlsx
+       第一行为标志列，第一列为name列，标志着xml中的name
+       语言对应于values目录后的语言简写 例如 values-de 得到的结果 为 de
+    2、一键运行自动根据数据插入到对应的 values.xml 中
+
+    使用技巧：
+    当第一列 name 为空时，会忽略掉这一行的数据.
+
+  </description>
 
   <change-notes>
     Android excel to XML i18n
